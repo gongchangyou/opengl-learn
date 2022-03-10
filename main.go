@@ -27,9 +27,11 @@ func main() {
 		log.Fatalln("failed to initialize glfw:", err)
 	}
 
+	defer glfw.Terminate()
+
 	//默认参数
 	glfw.WindowHint(glfw.Resizable, glfw.False)
-	//目前macos支持OpenGL 4.1版本，如果需要用到4.5版本的功能，请使用ubuntu或者windows系统
+	//目前macos支持OpenGL 4.1版本, 如果需要用到4.5版本的功能，请使用ubuntu或者windows系统,这玩意儿mac无法自行升级
 	glfw.WindowHint(glfw.ContextVersionMajor, 4)
 	glfw.WindowHint(glfw.ContextVersionMinor, 1)
 
